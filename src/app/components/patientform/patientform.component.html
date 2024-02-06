@@ -1,0 +1,98 @@
+<!-- patientform.component.html -->
+<br>
+<form [formGroup]="patientForm" class="container mt-4">
+    <div class="mb-3">
+        <div class="d-flex align-items-center">
+            <label for="age" class="form-label mr-2">Age</label>
+            <input type="number" class="form-control" id="age" placeholder="Enter age" formControlName="age">
+        </div>
+
+        <div class="d-flex align-items-center mt-3">
+            <label for="gender" class="form-label mr-2">Gender</label>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="male" value="male" formControlName="gender">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="female" value="female" formControlName="gender">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center mt-3">
+            <label for="bloodGroup" class="form-label mr-2">Blood Group</label>
+            <select class="form-select" id="bloodGroup" formControlName="bloodGroup">
+                <option value="" disabled selected>Select blood group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Blood Pressure</label>
+        <div class="d-flex align-items-center mt-2">
+            <input type="number" class="form-control" placeholder="Systolic" formControlName="systolicPressure">
+            <span class="mx-2">/</span>
+            <input type="number" class="form-control" placeholder="Diastolic" formControlName="diastolicPressure">
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">Sugar Level</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="noSugar" value="noSugar" formControlName="sugarLevel.type">
+            <label class="form-check-label" for="noSugar">No Sugar</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="fasting" value="fasting" formControlName="sugarLevel.type">
+            <label class="form-check-label" for="fasting">Fasting</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="postPrandial" value="postPrandial"
+                formControlName="sugarLevel.type">
+            <label class="form-check-label" for="postPrandial">Post Prandial</label>
+        </div>
+        <div *ngIf="patientForm.get('sugarLevel.type').value !== 'noSugar'" class="mt-2">
+            <button type="button" class="btn btn-secondary" (click)="toggleSugarLevels()">Add Sugar Levels</button>
+            <div *ngIf="showSugarLevels">
+                <input type="text" class="form-control" placeholder="Enter fasting sugar level"
+                    formControlName="sugarLevel.fasting">
+                <input type="text" class="form-control" placeholder="Enter post prandial sugar level"
+                    formControlName="sugarLevel.postPrandial">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mb-3">
+        <label for="allergies" class="form-label">Allergies</label>
+        <input type="text" class="form-control" id="allergies" placeholder="Enter allergies"
+            formControlName="allergies">
+    </div>
+
+    <div class="mb-3">
+
+        <label for="additionalInfo" class="form-label">Additional Factors/Symptoms</label>
+        <mat-form-field>
+            <input type="text" placeholder="Symptoms" matInput [matAutocomplete]="auto"
+                formControlName="additionalInfo"> &nbsp;
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let symptom of filteredSymptoms" [value]="symptom">
+                    {{ symptom }}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+
+
+    <button type="button" class="btn btn-primary" (click)="submitForm()">Submit</button>
+</form>

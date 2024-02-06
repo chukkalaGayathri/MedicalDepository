@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Healthcare Dashboard</h1>
+    <span class="spacer"></span>
+
+    <!-- Additional elements -->
+    <button mat-button>
+        <mat-icon>notifications</mat-icon>
+        Notifications
+    </button>
+
+    <button mat-button>
+        <mat-icon>settings</mat-icon>
+        Settings
+    </button>
+
+    <button mat-button style="align-content: end;">
+        <mat-icon>help</mat-icon>
+        Help
+    </button>
+
+    <!-- Profile picture -->
+    <div class="profile-pic">
+        <img src="https://mtcus.com/wp-content/uploads/2016/06/doctors-profile-img1.png" alt="Profile Picture">
+    </div>
+</mat-toolbar>
+
+
+<mat-sidenav-container autosize>
+    <mat-sidenav mode="side">
+
+
+        <!-- <a routerLink="dashboard" mat-list-item>
+            <span class="entry">
+                <mat-icon>house</mat-icon>
+                <span>Dashboard</span>
+
+            </span>
+        </a><br>
+
+        <a mat-list-item>
+            <span class="entry">
+                <mat-icon>house</mat-icon>
+                <span>Form field consultation</span>
+            </span>
+        </a>
+        <br>
+        <mat-divider></mat-divider>
+  -->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- Update your HTML structure with Bootstrap grid classes -->
+        <!-- <h1>Welcome</h1> -->
+        <!-- <app-doctorform></app-doctorform> -->
+
+
+        <div class="container" style="background-color: rgba(255, 255, 255, 0.8);  
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+            <!-- <router-outlet></router-outlet> -->
+            <app-patientform></app-patientform>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
