@@ -34,6 +34,14 @@
             </select>
         </div>
     </div>
+    <div class="mb-3">
+        <label class="form-label">Body Temperature</label>
+        <div class="d-flex align-items-center mt-2">
+            <input type="number" class="form-control" placeholder="Normal Body Temperature (°C)"
+                formControlName="bodyTemperature">
+        </div>
+    </div>
+
 
     <div class="mb-3">
         <label class="form-label">Blood Pressure</label>
@@ -46,22 +54,16 @@
 
 
     <div class="mb-3">
-        <label class="form-label">Sugar Level</label>
+        <label class="form-label">Diabetic</label>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="noSugar" value="noSugar" formControlName="sugarLevel.type">
-            <label class="form-check-label" for="noSugar">No Sugar</label>
+            <input class="form-check-input" type="radio" id="diabeticYes" value="yes" formControlName="diabetic">
+            <label class="form-check-label" for="diabeticYes">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="fasting" value="fasting" formControlName="sugarLevel.type">
-            <label class="form-check-label" for="fasting">Fasting</label>
+            <input class="form-check-input" type="radio" id="diabeticNo" value="no" formControlName="diabetic">
+            <label class="form-check-label" for="diabeticNo">No</label>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="postPrandial" value="postPrandial"
-                formControlName="sugarLevel.type">
-            <label class="form-check-label" for="postPrandial">Post Prandial</label>
-        </div>
-        <div *ngIf="patientForm.get('sugarLevel.type').value !== 'noSugar'" class="mt-2">
-            <button type="button" class="btn btn-secondary" (click)="toggleSugarLevels()">Add Sugar Levels</button>
+        <div *ngIf="patientForm.get('diabetic').value === 'yes'" class="mt-2">
             <div *ngIf="showSugarLevels">
                 <input type="text" class="form-control" placeholder="Enter fasting sugar level"
                     formControlName="sugarLevel.fasting">
@@ -69,22 +71,26 @@
                     formControlName="sugarLevel.postPrandial">
             </div>
         </div>
-    </div>
 
+    </div>
 
 
     <div class="mb-3">
         <label for="allergies" class="form-label">Allergies</label>
-        <input type="text" class="form-control" id="allergies" placeholder="Enter allergies"
-            formControlName="allergies">
+        <select class="form-select" id="allergies" formControlName="allergies">
+            <option value="" disabled selected>Select allergies</option>
+            <option *ngFor="let allergy of allergiesData" [value]="allergy">{{ allergy }}</option>
+        </select>
     </div>
+
+
 
     <div class="mb-3">
 
         <label for="additionalInfo" class="form-label">Additional Factors/Symptoms</label>
         <mat-form-field>
             <input type="text" placeholder="Symptoms" matInput [matAutocomplete]="auto"
-                formControlName="additionalInfo"> &nbsp;
+                formControlName="additionalInfo">
             <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let symptom of filteredSymptoms" [value]="symptom">
                     {{ symptom }}
@@ -96,3 +102,5 @@
 
     <button type="button" class="btn btn-primary" (click)="submitForm()">Submit</button>
 </form>
+
+<br><br>

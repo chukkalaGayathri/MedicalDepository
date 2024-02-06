@@ -97,7 +97,19 @@ button.mat-icon-button {
     /* Make sure the image fills the container */
     height: 100%;
     object-fit: cover;
+    margin-left: 10px;
+    /* Adjust margin as needed */
+    margin-right: 10px;
     /* Maintain the aspect ratio */
+}
+
+
+
+.profile-pic {
+    margin-left: 10px;
+    /* Adjust margin as needed */
+    margin-right: 10px;
+    /* Adjust margin as needed */
 }
 
 /* Sidenav Gradient Animation */
@@ -142,4 +154,18 @@ button.mat-icon-button {
     /* Add other styling as needed */
     height: max-content;
     width: auto;
+}
+
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    /* For macOS/iOS Safari */
+    top: 0;
+    /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+    /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.spacer {
+    flex: 1;
 }
