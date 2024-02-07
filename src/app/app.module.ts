@@ -17,11 +17,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { PatientformComponent } from './components/patientform/patientform.component';
 import { TestautomatchComponent } from './components/testautomatch/testautomatch.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ThemeService } from './theme.service';
 
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +38,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     SidebarComponent,
     DoctorformComponent,
     PatientformComponent,
-    TestautomatchComponent
+    TestautomatchComponent,
+    ThemeSelectorComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,9 +54,16 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSidenavModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule, HttpClientModule, MatMenuModule, MatSnackBarModule
+    MatButtonModule, HttpClientModule, MatMenuModule, MatSnackBarModule, MatSelectModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [],
+  providers: [ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

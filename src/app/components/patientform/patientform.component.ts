@@ -4,6 +4,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, debounceTime, map, startWith } from 'rxjs';
 import { MyserviceService } from 'src/app/myservice.service';
+import { ThemeService } from 'src/app/theme.service';
 
 @Component({
   selector: 'app-patientform',
@@ -18,7 +19,7 @@ export class PatientformComponent implements OnInit {
   patientForm: FormGroup;
   filteredSymptoms: string[] = [];
 
-  constructor(private fb: FormBuilder, private myservice: MyserviceService, private snackBar: MatSnackBar) { }
+  constructor(public themeService: ThemeService, private fb: FormBuilder, private myservice: MyserviceService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.patientForm = this.fb.group({
@@ -134,5 +135,8 @@ export class PatientformComponent implements OnInit {
     return this.symptomsData
       .filter(symptom => symptom.name.toLowerCase().includes(filterValue))
       .map(symptom => symptom.name);
+  }
+  setTheme(theme: string): void {
+    this.themeService.setCurrentTheme(theme);
   }
 }

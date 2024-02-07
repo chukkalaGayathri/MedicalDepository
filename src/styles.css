@@ -1,4 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Default Theme */
+
+
+/* Red Theme */
+.red {
+    background: #ff7f7f;
+    /* Light red */
+    accent-color: #ff0000;
+    /* Red */
+    color: #f3eded;
+    /* White */
+
+}
+
+/* Blue Theme */
+.blue {
+    background: #7f7fff;
+    /* Light blue */
+    accent-color: #0000ff;
+    /* Blue */
+    color: #ffffff;
+    /* White */
+}
+
+/* White Theme */
+.white {
+    background: #ffffff;
+    /* White */
+    accent-color: #000000;
+    /* Black */
+    color: #000000;
+    /* Black */
+}
+
+/* Dark Theme */
+.dark {
+    background: #333333;
+    /* Dark gray */
+    accent-color: #ffffff;
+    /* White */
+    color: #ffffff;
+    /* White */
+
+}
+
+.purple {
+    background: #B86DFF;
+    accent-Color: #6A0DAD;
+    Color: #FFFFFF;
+
+}
+
+.green {
+    background: #7FFF7F;
+    color: #00FF00;
+    color: #000000
+}

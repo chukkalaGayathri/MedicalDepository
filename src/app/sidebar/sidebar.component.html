@@ -1,8 +1,8 @@
-<mat-toolbar class="app-toolbar" color="primary">
+<mat-toolbar [ngClass]="themeService.getCurrentTheme()" class="app-toolbar" color="primary">
     <button mat-icon-button aria-label="Menu icon">
         <mat-icon>menu</mat-icon>
     </button>
-    <h1>Healthcare Dashboard</h1>
+    <h1 [ngClass]="themeService.getCurrentTheme()">Healthcare Dashboard</h1>
 
 
     <!-- Additional elements -->
@@ -27,7 +27,7 @@
         <mat-icon>language</mat-icon>
         Language
     </button>
-    <mat-menu #languageMenu="matMenu">
+    <mat-menu #languageMenu="matMenu" [ngClass]="themeService.getCurrentTheme()">
         <button mat-menu-item>English</button>
         <button mat-menu-item>Korean</button>
         <button mat-menu-item>Malay</button>
@@ -37,16 +37,23 @@
         <button mat-menu-item>Spanish</button>
     </mat-menu>
 
-    <!-- Theme button -->
+
+
     <button mat-button [matMenuTriggerFor]="themeMenu">
         <mat-icon>palette</mat-icon>
         Theme
     </button>
     <mat-menu #themeMenu="matMenu">
-        <button mat-menu-item>Theme 1</button>
-        <button mat-menu-item>Theme 2</button>
-        <button mat-menu-item>Theme 3</button>
+        <button mat-menu-item (click)="setTheme('default')">Default Theme</button>
+        <button mat-menu-item (click)="setTheme('red')">Red Theme</button>
+        <button mat-menu-item (click)="setTheme('blue')">Blue Theme</button>
+        <button mat-menu-item (click)="setTheme('green')">Green Theme</button>
+        <button mat-menu-item (click)="setTheme('purple')">Purple Theme</button>
+        <button mat-menu-item (click)="setTheme('white')">White Theme</button>
+        <button mat-menu-item (click)="setTheme('dark')">Dark Theme</button>
     </mat-menu>
+
+    <!-- <app-theme-selector></app-theme-selector> -->
 
     <!-- Profile picture -->
     <div class="profile-pic">
@@ -55,7 +62,7 @@
 </mat-toolbar>
 
 
-<mat-sidenav-container autosize>
+<mat-sidenav-container autosize [ngClass]="themeService.getCurrentTheme()">
     <mat-sidenav mode="side">
 
 

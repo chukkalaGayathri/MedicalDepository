@@ -1,6 +1,6 @@
 <!-- patientform.component.html -->
 <br>
-<form [formGroup]="patientForm" class="container mt-4">
+<form [ngClass]="themeService.getCurrentTheme()" [formGroup]="patientForm" class="container mt-4">
     <div class="mb-3">
         <div class="d-flex align-items-center">
             <label for="age" class="form-label mr-2">Age</label>
