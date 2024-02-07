@@ -146,12 +146,14 @@ button.mat-icon-button {
 
 .mat-sidenav-content {
     background-image: url('https://cdn.wallpapersafari.com/27/91/cW8PDw.jpg');
-    /* Replace 'path-to-your-image.jpg' with the actual path to your image */
+
+
+    /* background-image: url('https://th.bing.com/th/id/R.52455d61a7bca132eb2477ee4f5bd782?rik=RojCRdS31yGldA&riu=http%3a%2f%2fmm-tk.co.kr%2fwp-content%2fuploads%2f2021%2f09%2fshutterstock_379948402-edited-scaled.jpg&ehk=ElXcOBnarsaQi9nvE9mVHbU7GI3OhP4EexTrNAavY%2f8%3d&risl=&pid=ImgRaw&r=0'); */
     background-size: cover;
-    /* Adjust the background size as needed */
+
     background-repeat: no-repeat;
     background-position: center;
-    /* Add other styling as needed */
+
     height: max-content;
     width: auto;
 }
@@ -164,6 +166,79 @@ button.mat-icon-button {
     /* Sets the sticky toolbar to be on top */
     z-index: 1000;
     /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+/* Red Theme */
+.red {
+    background: #ff7f7f;
+    /* Light red */
+    accent-color: #ff0000;
+    /* Red */
+    color: #f3eded;
+    /* White */
+    /* background-image: url('https://cdn.wallpapersafari.com/27/91/cW8PDw.jpg'); */
+
+}
+
+/* Blue Theme */
+.blue {
+    background: #7f7fff;
+    /* Light blue */
+    accent-color: #0000ff;
+    /* Blue */
+    color: #ffffff;
+    /* White */
+    /* background-image: url('https://th.bing.com/th/id/R.16658394391e4ca819a20241c2e0bba9?rik=JneaxU8G0vLkZQ&riu=http%3a%2f%2flh5.ggpht.com%2f-SJubT_ShtNI%2fTmVuQl6qtbI%2fAAAAAAAAAow%2fhz9wMXZo-Rg%2fs9000%2fabstract-blue-backgrounds-1_1920x1200_71443.jpg&ehk=7Pid%2bY0JxtUrYT%2f684MyOsdfDUqbcyrZLcne0aHT3Ro%3d&risl=&pid=ImgRaw&r=0'); */
+}
+
+/* White Theme */
+.white {
+    background: #ffffff;
+    /* White */
+    /* text-decoration-color: #000000; */
+
+    /* Black */
+    color: #000000;
+
+    /* Black */
+    /* background-image: url('https://cdn.wallpapersafari.com/27/91/cW8PDw.jpg'); */
+}
+
+button.mat-menu-item:hover {
+    background: inherit;
+    /* Use the background color defined by the theme */
+    color: inherit;
+    /* Use the text color defined by the theme */
+}
+
+.white mat-icon {
+    color: #000000;
+}
+
+
+/* Dark Theme */
+.dark {
+    background: #333333;
+    /* Dark gray */
+    accent-color: #ffffff;
+    /* White */
+    color: #ffffff;
+    /* White */
+    /* background-image: url('https://cdn.wallpapersafari.com/27/91/cW8PDw.jpg'); */
+
+}
+
+.purple {
+    background: #B86DFF;
+    accent-Color: #6A0DAD;
+    Color: #FFFFFF;
+
+}
+
+.green {
+    background: #7FFF7F;
+    color: #00FF00;
+    color: #000000
 }
 
 .spacer {

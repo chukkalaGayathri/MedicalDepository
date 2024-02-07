@@ -1,0 +1,8 @@
+.component {
+    color: var(--text-color);
+    /* Use text color variable */
+    background: var(--primary-color);
+    /* Use primary color variable */
+    border-color: var(--accent-color);
+    /* Use accent color variable */
+}
